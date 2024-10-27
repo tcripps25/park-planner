@@ -1,18 +1,31 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import MainNavLink from './MainNavLink.vue';
+import MainNavSection from './MainNavSection.vue';
 
-const items = ref([
-    { label: 'Home', to: "/", icon: 'pi pi-plus' },
-    { label: 'About', to: "/about", icon: 'pi pi-search' },
-    { label: 'Plan', to: "/plan", icon: '' }
 
-]);
+const props = defineProps({
+    items: Array
+})
+
+// Track visibility for each submenu
+const openSections = ref({});
+
+// Define toggleSection as a const function
+const toggleSection = (index) => {
+    openSections.value[index] = !openSections.value[index];
+};
 
 </script>
 
 <template>
-    <nav class="flex flex-col pt-5">
-        <MainNavLink v-for="(item, index) in items" :key="index" :to="item.to" :label="item.label" />
+    <nav class="flex flex-col">
+        <ul>
+            <li v-for="(linkItem, index) in items" :key="'link-' + index">
+                <MainNavSection @click="toggleSection(index)" v-if="linkItem.section" :item="linkItem" />
+                <MainNavLink v-else :item="linkItem" />
+                <MainNav v-if="linkItem.children && openSections[index]" :items="linkItem.children" />
+            </li>
+        </ul>
     </nav>
 </template>

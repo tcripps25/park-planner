@@ -13,7 +13,7 @@ import MainSidebar from './components/MainSidebar.vue';
         <div class="ml-10">
 
         </div>
-        <main class="p-5 rounded-s-xl  border shadow grow bg-slate-100">
+        <main class="p-5 rounded-s-xl border shadow grow bg-slate-100">
           <RouterView />
         </main>
       </div>
