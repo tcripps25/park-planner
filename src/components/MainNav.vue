@@ -1,20 +1,22 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import MainNavLink from './MainNavLink.vue';
 import MainNavSection from './MainNavSection.vue';
 
-
 const props = defineProps({
     items: Array
-})
+});
 
-// Track visibility for each submenu
-const openSections = ref({});
+// Track the selected section index for visibility control
+const selectedSectionIndex = ref(null);
 
-// Define toggleSection as a const function
+// Define toggleSection to set selectedSectionIndex
 const toggleSection = (index) => {
-    openSections.value[index] = !openSections.value[index];
+    selectedSectionIndex.value = selectedSectionIndex.value === index ? null : index;
 };
+
+
+
 
 </script>
 
@@ -22,9 +24,13 @@ const toggleSection = (index) => {
     <nav class="flex flex-col">
         <ul>
             <li v-for="(linkItem, index) in items" :key="'link-' + index">
-                <MainNavSection @click="toggleSection(index)" v-if="linkItem.section" :item="linkItem" />
+                <!-- Set hidden based on whether the current index matches the selected index -->
+                <MainNavSection @click="toggleSection(index)" v-if="linkItem.section" :item="linkItem">
+                    <template #submenu>
+                        <MainNav class="ml-5" v-if="linkItem.children" :items="linkItem.children" />
+                    </template>
+                </MainNavSection>
                 <MainNavLink v-else :item="linkItem" />
-                <MainNav v-if="linkItem.children && openSections[index]" :items="linkItem.children" />
             </li>
         </ul>
     </nav>

@@ -11,9 +11,8 @@ import MainSidebar from './components/MainSidebar.vue';
       <MainSidebar />
       <div class="flex flex-col grow">
         <div class="ml-10">
-
         </div>
-        <main class="p-5 rounded-s-xl border shadow grow bg-slate-100">
+        <main class="p-5 grow bg-white">
           <RouterView />
         </main>
       </div>

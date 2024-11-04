@@ -8,13 +8,20 @@ const props = defineProps({
 })
 
 const showSubmenu = ref(false)
+const toggleShowSubmenu = () => {
+    showSubmenu.value = !showSubmenu.value
+}
 
 </script>
 
 <template>
-    <Button @click="$emit('someEvent')" :label="item.label" type="section">
-        <template #icon>
-            <ChevronDownIcon class="h-4 w-4" />
-        </template>
-    </Button>
+    <div>
+        <Button @click="toggleShowSubmenu" :label="item.label" type="section">
+            <template #icon>
+                <ChevronDownIcon class="h-4 w-4 mr-1 transition" :class="showSubmenu ? '' : '-rotate-90'" />
+            </template>
+        </Button>
+        <slot v-if="showSubmenu" name="submenu">
+        </slot>
+    </div>
 </template>

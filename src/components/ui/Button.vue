@@ -22,7 +22,7 @@ const props = defineProps({
         class="flex gap-1 items-center py-1 rounded-sm transition text-sm" :class="{
             'flex-row-reverse': trailing,
             'px-2': !inline,
-            'bg-transparent font-semibold px-4 w-full': type === 'section',   // Section style
+            'bg-transparent font-semibold px-4 py-2 w-full hover:bg-slate-300': type === 'section',   // Section style
             'bg-blue-700 hover:bg-blue-600 text-white': type === 'solid',   // Solid style
             'bg-slate-200 dark:bg-zinc-700 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-700': type === 'ghost', // Ghost style
             'bg-transparent hover:bg-slate-2 text-slate-800 hover:text-slate-600': type === 'text', // Text style
