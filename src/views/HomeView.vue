@@ -13,7 +13,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="main-container">
+  <div class="main-container container">
     <SelectPark />
     <AttractionList />
   </div>
