@@ -1,10 +1,9 @@
 <script setup>
+// No script changes needed
 </script>
 <template>
-  <header>
-
-
-    <div class="wrapper main-header">
+  <header class="main-header">
+    <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
       </nav>
@@ -15,12 +14,15 @@
 <style scoped>
 .main-header {
   display: flex;
-  padding: 2rem;
+  padding: 1rem 2rem;
+  /* Adjust padding as needed */
   background-color: var(--main-header-color);
-  margin-left: -2rem;
-  margin-right: -2rem;
-  margin-top: -2rem;
-  margin-bottom: 2rem;
+  /* Removed negative margins */
+}
 
+.wrapper {
+  /* Add any specific wrapper styles if needed, e.g., max-width, margin: auto */
+  width: 100%;
+  /* Example */
 }
 </style>

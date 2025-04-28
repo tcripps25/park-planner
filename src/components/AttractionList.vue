@@ -26,7 +26,7 @@ const parkStore = useParkStore();
       <!-- Only display categories with rides -->
       <div v-if="categoryRides.length > 0">
         <h3>{{ categoryName }}</h3>
-        <ul class=" attraction-grid">
+        <ul class="attraction-grid">
           <li v-for="activity in categoryRides" :key="activity.id">
             <ActivityCard :activity="activity" />
           </li>
@@ -61,8 +61,8 @@ h3 {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
 </style>

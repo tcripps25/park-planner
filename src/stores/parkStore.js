@@ -68,7 +68,6 @@ export const useParkStore = defineStore('parkStore', () => {
     deselectRide,
     setStartTime,
     // Composables (fetchRides might not need to be exposed if only called internally)
-    fetchRides, // You might not need to expose this
     // Getters
     selectedRideObjects,
   }
