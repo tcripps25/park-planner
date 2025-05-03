@@ -7,7 +7,6 @@ export const useParkStore = defineStore('parkStore', () => {
   const selectedParkId = ref(null)
   const selectedRides = ref([])
   const tripStartTime = ref('09:00')
-  const tripDateRange = ref([])
   const selectedResortId = ref(null)
 
   // --- COMPOSABLE: Fetch rides
@@ -29,10 +28,6 @@ export const useParkStore = defineStore('parkStore', () => {
       rides.value = { SHOW: [], ATTRACTION: [], RESTAURANT: [], OTHER: [] }
       error.value = null // Clear error
     }
-  }
-
-  function setTripDates(dateRange) {
-    tripDateRange.value = dateRange
   }
 
   function setSelectedResort(resortId) {
@@ -72,14 +67,12 @@ export const useParkStore = defineStore('parkStore', () => {
     rides,
     loading,
     error,
-    tripDateRange,
     selectedResortId,
     // Actions
     setSelectedPark,
     selectRide,
     deselectRide,
     setStartTime,
-    setTripDates,
     setSelectedResort,
     // Composables (fetchRides might not need to be exposed if only called internally)
     // Getters

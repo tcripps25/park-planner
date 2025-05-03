@@ -4,10 +4,9 @@
 <template>
   <header class="main-header">
     <div class="wrapper">
-      <span class="app-name">Park Planner
-      </span>
+      <RouterLink class="app-name" to="/">Park Planner</RouterLink>
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+
       </nav>
     </div>
   </header>
