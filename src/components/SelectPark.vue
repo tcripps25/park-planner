@@ -20,9 +20,9 @@ const selectedPark = ref(null)
 
   <!-- Park Selector -->
 
-  <div v-if="resortStore.selectedResort">
+  <div v-if="resortStore.selectedResort" class="w-full">
     <label for="park">Select a Park:</label>
-    <Select v-model="parkStore.selectedParkId" :options="resortStore.availableParks" optionLabel="name" optionValue="id"
-      placeholder="Select a Park" />
+    <Select class="w-full" v-model="parkStore.selectedParkId" :options="resortStore.availableParks" optionLabel="name"
+      optionValue="id" placeholder="Select a Park" />
   </div>
 </template>

@@ -44,7 +44,7 @@ function startNewPlan() {
 
 <style scoped>
 .start-screen {
-  max-width: 500px;
+  min-width: 400px;
   margin: auto;
   padding: 2rem;
   display: flex;
