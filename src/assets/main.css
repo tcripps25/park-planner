@@ -1,6 +1,6 @@
-@import './reset.css';
 @import './base.css';
 @import './colours.css';
+@import './shortcuts.css';
 
 @media (hover: hover) {
   a:hover {

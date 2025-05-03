@@ -1,49 +1,27 @@
 <script setup>
-import SelectPark from '@/components/SelectPark.vue';
-import AttractionList from '@/components/AttractionList.vue';
-import { onMounted } from 'vue';
-import SelectedPlans from '@/components/SelectedPlans.vue';
+import HeroSection from '@/components/HeroSection.vue'
+import StartScreen from '@/components/StartScreen.vue'
 
-onMounted(() => {
-  // Any initial setup (e.g., to fetch default park data if needed)
-});
+
+
 </script>
 
 <template>
-  <div class="main-container">
-    <div class="selected-plans-wrapper">
-      <SelectedPlans />
-    </div>
-    <div class="selection-container">
-      <SelectPark />
-      <AttractionList />
-    </div>
+  <div class="home-screen">
+    <HeroSection />
+    <StartScreen />
+
   </div>
 </template>
 
 <style scoped>
-.main-container {
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: 3fr minmax(0, 1fr);
-  gap: 2rem;
-  overflow: hidden;
-  min-height: 0;
-}
-
-.selected-plans-wrapper {
-  overflow-y: auto;
-  min-height: 0;
-  padding: 2rem;
-}
-
-.selection-container {
-  overflow-y: auto;
-  overflow-x: hidden;
+.home-screen {
+  margin: auto;
+  padding: 1rem 2rem 2rem 2rem;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   gap: 1rem;
-  min-height: 0;
-  padding: 2rem;
+  height: 100%;
+  width: 100%;
 }
 </style>
