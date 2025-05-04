@@ -23,11 +23,14 @@ const parkStore = useParkStore();
   gap: 1rem;
   background-color: white;
   height: 100%;
+  padding: 1rem;
+  border-radius: .5rem;
+  overflow: hidden;
 
   .selected-plans-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem
+    gap: 1rem;
   }
 }
 </style>

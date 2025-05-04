@@ -17,6 +17,7 @@
   display: flex;
   padding: 1rem 2rem 0rem 2rem;
   background-color: var(--main-bg);
+  color: black;
 
   .app-name {
     font-size: 1.4rem;

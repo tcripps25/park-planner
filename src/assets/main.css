@@ -12,6 +12,7 @@
   min-height: 100vh;
   width: 100vw;
   background-color: var(--main-background);
+  color: black;
 }
 
 .button-icon {

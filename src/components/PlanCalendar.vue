@@ -21,16 +21,21 @@ const tripStore = useTripStore();
 .plan-calendar-list {
   display: flex;
   gap: 1rem;
+  overflow: scroll;
+  padding: 1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  margin-top: -1rem;
 
   .day-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 5rem;
-    min-width: 10rem;
+    min-height: 3rem;
+    min-width: 7rem;
     background-color: var(--main-accent);
-    border-radius: .5rem;
+    border-radius: 20rem;
   }
 }
 </style>
