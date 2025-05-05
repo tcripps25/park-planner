@@ -1,5 +1,6 @@
 <script setup>
 import { useTripStore } from '@/stores/tripStore';
+import DayCard from './DayCard.vue';
 
 
 const tripStore = useTripStore();
@@ -8,11 +9,13 @@ const tripStore = useTripStore();
 
 <template>
   <div class="plan-calendar-list">
-    <div v-for="day in tripStore.tripDays" :key="day.id" class="day-card">
-      {{ day.weekday }}
-      {{ day.day }}
-      {{ day.month }}
+    <div v-for="(day, index) in tripStore.tripDays" :key="day.id" class="plan-calendar-container">
+      <!-- Only show month label if it's the first item OR month changes -->
+      <span class="month-label" v-if="index === 0 || day.month !== tripStore.tripDays[index - 1].month">
+        {{ day.month }}
+      </span>
 
+      <DayCard :day="day" />
     </div>
   </div>
 </template>
@@ -27,15 +30,23 @@ const tripStore = useTripStore();
   margin-right: -1rem;
   margin-top: -1rem;
 
-  .day-card {
+  .plan-calendar-container {
     display: flex;
+    gap: 1rem;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 3rem;
-    min-width: 7rem;
-    background-color: var(--main-accent);
-    border-radius: 20rem;
+    padding-top: 2rem;
+    position: relative;
+
+    .month-label {
+      position: absolute;
+      top: 0;
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
   }
+
+
 }
 </style>
