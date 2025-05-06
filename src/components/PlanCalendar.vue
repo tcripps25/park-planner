@@ -1,21 +1,20 @@
 <script setup>
-import { useTripStore } from '@/stores/tripStore';
-import DayCard from './DayCard.vue';
+import { useTripStore } from '@/stores/tripStore'
+import DayCard from './DayCard.vue'
 
+const tripStore = useTripStore()
 
-const tripStore = useTripStore();
+function isFirstOfMonth(day, index, days) {
+  return index === 0 || day.month !== days[index - 1].month
+}
 </script>
-
 
 <template>
   <div class="plan-calendar-list">
     <div v-for="(day, index) in tripStore.tripDays" :key="day.id" class="plan-calendar-container">
-      <!-- Only show month label if it's the first item OR month changes -->
-      <span class="month-label" v-if="index === 0 || day.month !== tripStore.tripDays[index - 1].month">
-        {{ day.month }}
-      </span>
-
-      <DayCard :day="day" />
+      <!-- Month label only before first day of a new month -->
+      <DayCard v-if="isFirstOfMonth(day, index, tripStore.tripDays)" :title="day.month" :day="day" />
+      <DayCard v-else :day="day" />
     </div>
   </div>
 </template>
@@ -23,30 +22,17 @@ const tripStore = useTripStore();
 <style scoped>
 .plan-calendar-list {
   display: flex;
-  gap: 1rem;
-  overflow: scroll;
+  gap: .5rem;
+  overflow-x: auto;
   padding: 1rem;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  margin-top: -1rem;
+  margin: -1rem;
+}
 
-  .plan-calendar-container {
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
-    padding-top: 2rem;
-    position: relative;
-
-    .month-label {
-      position: absolute;
-      top: 0;
-      font-weight: 600;
-      font-size: 1rem;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-  }
-
-
+.plan-calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto;
+  min-width: 6rem;
 }
 </style>
