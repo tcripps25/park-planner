@@ -22,7 +22,7 @@ function isFirstOfMonth(day, index, days) {
 <style scoped>
 .plan-calendar-list {
   display: flex;
-  gap: .5rem;
+  gap: 1rem;
   overflow-x: auto;
   padding: 1rem;
   margin: -1rem;
@@ -33,6 +33,5 @@ function isFirstOfMonth(day, index, days) {
   flex-direction: column;
   align-items: center;
   flex: 0 0 auto;
-  min-width: 6rem;
 }
 </style>
